@@ -31,6 +31,9 @@ app.get('/messages',async (req,res)=>{
     }
 })
 
+bot.launch(()=>{
+    console.log('bot launched')
+})
 
 app.listen(PORT,()=>{
     console.log(`app listen on ${PORT}`);

@@ -25,11 +25,13 @@ app.get('/helth', (req,res)=>{
 app.get('/messages',async (req,res)=>{
     let allMessage = await message.find({})
     if(allMessage){
-        res.json(allMessage).status(200)
+        bot.command('message', (ctx) => ctx.reply(allMessage))
     }else{
         res.send('not found yet or some thing went wrong')
     }
 })
+
+
 
 bot.launch(()=>{
     console.log('bot launched')

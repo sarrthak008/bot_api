@@ -4,9 +4,12 @@ const PORT = 3000 || process.env.PORT
 import connectDb from './config/connect.js';
 import {message} from './models/message.js';
 import { config } from 'dotenv';
-config()
+import cors from 'cors'
 
+config()
 connectDb()
+
+app.use(cors())
 
 app.get('/helth', (req,res)=>{
     res.json({

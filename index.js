@@ -12,8 +12,8 @@ connectDb()
 
 app.use(cors())
 
-const bot = new Telegraf('7950790583:AAEagDNrVgGgjrWav8DR9TamnqFHsbinZJU')
-bot.start((ctx) => ctx.reply('Welcome'))
+const bot = new Telegraf('7950790583:AAEagDNrVgGgjrWav8DR9TamnqFHsbinZJU');
+bot.start((ctx) => ctx.reply('server is running healty master 🏃‍♂️....'));
 
 
 

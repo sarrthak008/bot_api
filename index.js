@@ -18,9 +18,11 @@ const bot = new Telegraf('7950790583:AAEagDNrVgGgjrWav8DR9TamnqFHsbinZJU');
 bot.start((ctx) => ctx.reply('server is running healty master 🏃‍♂️....'));
 
 //
-bot.command('hiii', async (ctx)=>{
-   let messaeg = await message.find()
-   ctx.reply(messaeg)
+bot.command('all', async (ctx)=>{
+   let allmessages = await message.find()
+   allmessages.map((msg)=>{
+     ctx.reply(` NAME 👨‍💻 : ${msg.name} \n\n\n MOBILE NO 📍 : ${msg.mobile_no} \n\n\n MESSAGE 💬: ${msg.discription} `)
+   })
 })
 
 bot.launch(()=>{

@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { urlencoded } from 'express'
 const app = express();
 const PORT = 3000 || process.env.PORT
 import connectDb from './config/connect.js';
@@ -11,22 +11,15 @@ config()
 connectDb()
 
 app.use(cors())
+app.use(express.json())
+app.use(urlencoded({extended:true}))
 
-const bot = new Telegraf('7950790583:AAEagDNrVgGgjrWav8DR9TamnqFHsbinZJU');
-
-//bot start command... 
-bot.start((ctx) => ctx.reply('server is running healty master 🏃‍♂️....'));
-
-//
-bot.command('all', async (ctx)=>{
-   let allmessages = await message.find()
-   allmessages.map((msg)=>{
-     ctx.reply(` NAME 👨‍💻 : ${msg.name} \n\n\n MOBILE NO 📍 : ${msg.mobile_no} \n\n\n MESSAGE 💬: ${msg.discription} `)
-   })
+app.get('/health',(req,res)=>{
+  res.send('server is running healthy...');
 })
 
-bot.launch(()=>{
-    console.log('bot launched')
+app.post('/health',(req,res)=>{
+  res.send('server is running healthy...');
 })
 
 app.listen(PORT,()=>{
